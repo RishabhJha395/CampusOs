@@ -362,7 +362,7 @@ export function Dashboard() {
                   type="text"
                   value={editRollNumber}
                   onChange={(e) => setEditRollNumber(e.target.value)}
-                  placeholder="e.g. 2K23/CS/330"
+                  placeholder="e.g. 2K23/CS/338"
                   className="w-full px-3 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-gray-900 dark:text-white uppercase"
                 />
               ) : (
@@ -512,7 +512,7 @@ export function Dashboard() {
                     <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">Roll Number</label>
                     <input 
                       type="text" required value={linkRollNumber} onChange={e => setLinkRollNumber(e.target.value)}
-                      placeholder="e.g. 2K23/CS/330"
+                      placeholder="e.g. 2K23/CS/338"
                       className="w-full px-3 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg text-sm uppercase"
                     />
                   </div>

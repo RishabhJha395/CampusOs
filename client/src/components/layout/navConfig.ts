@@ -1,13 +1,14 @@
 import type { UserRole } from '../../features/auth/types';
 import { 
   Home, Users, Calendar, Building, MessageSquare, 
-  Bell, AlertTriangle, ShoppingBag, User
+  Bell, AlertTriangle, ShoppingBag, User, Bot
 } from 'lucide-react';
 
 export interface NavItem {
   label: string;
   href: string;
   icon: React.ElementType;
+  external?: boolean;
 }
 
 export const getNavConfig = (role: UserRole): NavItem[] => {
@@ -16,6 +17,7 @@ export const getNavConfig = (role: UserRole): NavItem[] => {
     { label: 'Chat', href: '/chat', icon: MessageSquare },
     { label: 'Notifications', href: '/notifications', icon: Bell },
     { label: 'My Profile', href: '/profile', icon: User },
+    { label: 'Ask CampusMind', href: 'https://campus-mind-ai-plum.vercel.app/', icon: Bot, external: true },
   ];
 
   switch (role) {

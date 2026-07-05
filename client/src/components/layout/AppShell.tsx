@@ -84,19 +84,10 @@ export function AppShell() {
               if (item.href === '/chat') badgeCount = totalUnreadChats;
               if (item.href === '/notifications') badgeCount = totalUnreadChats + totalEmergencies;
 
-              return (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  onClick={() => setSidebarOpen(false)}
-                  className={`flex items-center px-3 py-2.5 rounded-xl transition-colors relative ${
-                    isActive 
-                      ? 'bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400 font-medium' 
-                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50'
-                  }`}
-                >
+              const content = (
+                <>
                   <div className="relative">
-                    <item.icon className={`mr-3 h-5 w-5 ${isActive ? 'text-primary-600 dark:text-primary-400' : 'text-gray-400'}`} />
+                    <item.icon className={`mr-3 h-5 w-5 ${isActive && !item.external ? 'text-primary-600 dark:text-primary-400' : 'text-gray-400'}`} />
                     {badgeCount > 0 && (
                       <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white shadow-sm">
                         {badgeCount > 99 ? '99+' : badgeCount}
@@ -104,6 +95,38 @@ export function AppShell() {
                     )}
                   </div>
                   {item.label}
+                </>
+              );
+
+              const className = `flex items-center px-3 py-2.5 rounded-xl transition-colors relative ${
+                isActive && !item.external
+                  ? 'bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400 font-medium' 
+                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50'
+              }`;
+
+              if (item.external) {
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setSidebarOpen(false)}
+                    className={className}
+                  >
+                    {content}
+                  </a>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setSidebarOpen(false)}
+                  className={className}
+                >
+                  {content}
                 </Link>
               );
             })}

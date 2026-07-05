@@ -1,8 +1,9 @@
 # 🎓 CampusOS — The Operating System for Modern Campuses
 
-CampusOS is a unified, full-stack digital campus management platform that connects **Students**, **Faculty**, **Wardens**, **Parents**, and **College Admins** in one seamless ecosystem. It provides real-time chat, emergency SOS alerts, hostel management, an academic hub, a student marketplace, and a clubs & events system — all secured with role-based access control and powered by Supabase.
+CampusOS is a unified, full-stack digital campus management platform that connects **Students**, **Faculty**, **Wardens**, **Parents**, and **College Admins** in one seamless ecosystem. It provides real-time chat, emergency SOS alerts, hostel management, an academic hub, a student marketplace, clubs & events, and an **AI-powered assistant (CampusMind)** — all secured with role-based access control and powered by Supabase.
 
-> **Live Demo**: [campusos.vercel.app](https://campus-os-omega.vercel.app)
+> **Live Demo**: [campusos.vercel.app](https://campus-os-omega.vercel.app)  
+> **CampusMind AI**: [campus-mind-ai-plum.vercel.app](https://campus-mind-ai-plum.vercel.app/)
 
 ---
 
@@ -13,6 +14,7 @@ CampusOS is a unified, full-stack digital campus management platform that connec
 - [Deployment Architecture](#-deployment-architecture)
 - [Authentication & Role-Based Routing](#-authentication--role-based-routing)
 - [Database Architecture](#-database-architecture)
+- [CampusMind AI (RAG)](#-campusmind-ai-rag)
 - [Key Features](#-key-features)
 - [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
@@ -34,7 +36,8 @@ CampusOS is a unified, full-stack digital campus management platform that connec
 | **Realtime** | Supabase Realtime (Postgres Changes + Broadcast) |
 | **Icons** | Lucide React |
 | **Forms** | React Hook Form |
-| **Hosting** | Vercel (Frontend) + Supabase Cloud (Backend) |
+| **AI Assistant** | CampusMind AI — RAG-based Q&A (separate Vercel app) |
+| **Hosting** | Vercel (Frontend + AI App) + Supabase Cloud (Backend) |
 
 ---
 
@@ -353,6 +356,17 @@ All tables use **Row Level Security (RLS)**. Key policies include:
 - Unified notification center for chat messages and SOS alerts
 - Real-time badge counts on sidebar navigation
 - Per-channel unread tracking
+
+---
+
+## 🤖 CampusMind AI (RAG)
+
+CampusOS integrates **CampusMind**, an AI-powered Retrieval-Augmented Generation (RAG) assistant accessible directly from the sidebar for every user role.
+
+- **What it does**: CampusMind lets students, faculty, parents, and admins ask natural-language questions about college policies, hostel rules, academic guidelines, examination schedules, and more — and get instant, accurate answers sourced from official college documents.
+- **How it works**: The RAG pipeline retrieves relevant chunks from indexed college documents and feeds them as context to an LLM, ensuring answers are grounded in real institutional data rather than hallucinated.
+- **Access**: Every authenticated user sees an **"Ask CampusMind"** button in the left sidebar. Clicking it opens the CampusMind app in a new tab.
+- **Deployed at**: [campus-mind-ai-plum.vercel.app](https://campus-mind-ai-plum.vercel.app/)
 
 ---
 

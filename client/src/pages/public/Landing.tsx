@@ -42,18 +42,18 @@ export function Landing() {
       lightColor: "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400"
     },
     {
-      title: "Clubs & Events",
-      description: "Discover campus communities, join clubs, and never miss an upcoming event.",
-      icon: Users,
-      color: "bg-purple-500",
-      lightColor: "bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400"
-    },
-    {
       title: "CampusMind AI",
       description: "Ask natural-language questions about college policies and get instant answers from our AI assistant.",
       icon: Bot,
       color: "bg-teal-500",
       lightColor: "bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400"
+    },
+    {
+      title: "Clubs & Events",
+      description: "Discover campus communities, join clubs, and never miss an upcoming event.",
+      icon: Users,
+      color: "bg-purple-500",
+      lightColor: "bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400"
     }
   ];
 
